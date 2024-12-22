@@ -1,14 +1,14 @@
 package gui;
 
-public class BoardGamePanel extends IMSPanel {
+public class PurchasesPanel extends IMSPanel {
 	private static final long serialVersionUID = 1L;
 
-	public BoardGamePanel() {
+	public PurchasesPanel() {
 		addContent();
 	}
 	
 	public String getTitle(){
-		return "Board Games";
+		return "Purchases";
 	}
 
 	@Override

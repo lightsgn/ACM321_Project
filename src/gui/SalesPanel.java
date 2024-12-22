@@ -1,25 +1,25 @@
 package gui;
 
-public class BoardGamePanel extends IMSPanel {
+public class SalesPanel extends IMSPanel {
 	private static final long serialVersionUID = 1L;
 
-	public BoardGamePanel() {
+	public SalesPanel() {
 		addContent();
 	}
-	
-	public String getTitle(){
-		return "Board Games";
+
+	public String getTitle() {
+		return "Sales";
 	}
 
 	@Override
 	public String[][] getRows() {
 		// TODO Auto-generated method stub
-		return new String[][]{};
+		return new String[][] {};
 	}
 
 	@Override
 	public String[] getColumnNames() {
 		// TODO Auto-generated method stub
-		return new String[]{};
+		return new String[] {};
 	}
 }

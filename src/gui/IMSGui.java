@@ -4,14 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
 import repo.SupplierRepo;
-
+import repo.BoardGameRepo;
 
 public class IMSGui {
-	   
+	  
 
-	public IMSGui (SupplierRepo supplierRepo) {
+	public IMSGui (SupplierRepo supplierRepo, BoardGameRepo boardGameRepo) {
         JTabbedPane tabPane = new JTabbedPane();
-        tabPane.addTab("Boardgames", new BoardGamePanel());
+        tabPane.addTab("Boardgames", new BoardGamePanel(boardGameRepo));
         tabPane.addTab("Sales", new SalesPanel());
         tabPane.addTab("Purchases", new PurchasesPanel());
         tabPane.addTab("Suppliers", new SuppliersPanel(supplierRepo));

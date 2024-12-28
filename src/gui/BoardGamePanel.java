@@ -5,11 +5,12 @@ import java.util.List;
 import repo.BoardGameRepo;
 import structures.BoardGame;
 
-
 public class BoardGamePanel extends IMSPanel {
 	private static final long serialVersionUID = 1L;
+	private BoardGameRepo repo;
 
-	public BoardGamePanel() {
+	public BoardGamePanel(BoardGameRepo repo) {
+		this.repo = repo;
 		addContent();
 	}
 	

@@ -1,6 +1,5 @@
 package repo;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -9,8 +8,13 @@ import java.util.List;
 import structures.BoardGame;
 
 public class BoardGameRepo {
+	Connection con;
+	
+    public BoardGameRepo(Connection con) {
+		this.con = con;
+	}
 
-    public List<BoardGame> listAll() {
+	public List<BoardGame> listAll() {
         try {
             return fetchAll();
         } catch (Exception e) {
@@ -20,9 +24,6 @@ public class BoardGameRepo {
 
     private List<BoardGame> fetchAll() throws Exception {
 
-        String url = "jdbc:sqlite:db/project.db";
-
-        Connection con = DriverManager.getConnection(url);
         Statement st = con.createStatement();
         String query = "SELECT * FROM board_games";
         ResultSet rs = st.executeQuery(query);
@@ -50,7 +51,6 @@ public class BoardGameRepo {
 
         rs.close();
         st.close();
-        con.close();
 
         return boardGames;
     }

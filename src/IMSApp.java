@@ -4,6 +4,8 @@ import java.sql.DriverManager;
 import gui.IMSGui;
 import repo.SupplierRepo;
 import repo.BoardGameRepo;
+import repo.PurchaseRepo;
+
 
 public class IMSApp {
 	public static void main(String[] args) throws Exception {
@@ -11,7 +13,8 @@ public class IMSApp {
 		if(con == null) con = createDatabase();
 		SupplierRepo repo = new SupplierRepo(con);
 		BoardGameRepo boardGameRepo = new BoardGameRepo(con);
-		new IMSGui(repo, boardGameRepo);
+		PurchaseRepo purchaseRepo = new PurchaseRepo(con);
+		new IMSGui(repo, boardGameRepo,purchaseRepo);
 		con.close();
 		
 	}

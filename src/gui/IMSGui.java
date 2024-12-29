@@ -6,7 +6,13 @@ import repo.BoardGameRepo;
 import repo.SupplierRepo;
 import repo.PurchaseRepo;
 
+import repo.BoardGameRepo;
+
 public class IMSGui {
+	  
+
+
+
 
 	public IMSGui (SupplierRepo supplierRepo, BoardGameRepo boardGameRepo, PurchaseRepo purchaseRepo) {
         JTabbedPane tabPane = new JTabbedPane();

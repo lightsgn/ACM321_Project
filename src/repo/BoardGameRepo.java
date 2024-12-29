@@ -36,11 +36,11 @@ public class BoardGameRepo {
             String maker = rs.getString("maker");
             String type = rs.getString("type");
             String mechanic = rs.getString("mechanic");
-            int playerCount = rs.getInt("player_count");
-            int ageLimit = rs.getInt("age_limit");
+            String playerCount = rs.getString("player_count");
+            String ageLimit = rs.getString("age_limit");
             boolean diceUsage = rs.getBoolean("dice_usage");
             boolean cardUsage = rs.getBoolean("card_usage");
-            int averagePlayTime = rs.getInt("average_play_time");
+            String averagePlayTime = rs.getString("average_play_time");
             int price = rs.getInt("price");
             int quantityAvailable = rs.getInt("quantity_available");
             int quantitySold = rs.getInt("quantity_sold");

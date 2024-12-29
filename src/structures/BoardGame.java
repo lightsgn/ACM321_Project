@@ -6,19 +6,19 @@ public class BoardGame {
 	public String maker;
 	public String type;
 	public String mechanic;
-	public int playerCount;
-	public int ageLimit;
+	public String playerCount;
+	public String ageLimit;
 	public boolean diceUsage;
 	public boolean cardUsage;
-	public int averagePlayTime;
+	public String averagePlayTime;
 	public int price;
 	public int quantityAvailable;
 	public int quantitySold;
 	
 	
 	
-	public BoardGame(int id, String name, String maker, String type,String mechanic, int playerCount, 
-			int ageLimit, boolean diceUsage, boolean cardUsage, int averagePlayTime, int price, int quantityAvailable, int quantitySold) {
+	public BoardGame(int id, String name, String maker, String type,String mechanic, String playerCount, 
+			String ageLimit, boolean diceUsage, boolean cardUsage, String averagePlayTime, int price, int quantityAvailable, int quantitySold) {
 		this.id = id;
 		this.name = name;
 		this.maker = maker;

@@ -1,6 +1,5 @@
 package repo;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -9,8 +8,13 @@ import java.util.List;
 import structures.BoardGame;
 
 public class BoardGameRepo {
+	Connection con;
+	
+    public BoardGameRepo(Connection con) {
+		this.con = con;
+	}
 
-    public List<BoardGame> listAll() {
+	public List<BoardGame> listAll() {
         try {
             return fetchAll();
         } catch (Exception e) {
@@ -20,9 +24,6 @@ public class BoardGameRepo {
 
     private List<BoardGame> fetchAll() throws Exception {
 
-        String url = "jdbc:sqlite:db/project.db";
-
-        Connection con = DriverManager.getConnection(url);
         Statement st = con.createStatement();
         String query = "SELECT * FROM board_games";
         ResultSet rs = st.executeQuery(query);
@@ -35,11 +36,11 @@ public class BoardGameRepo {
             String maker = rs.getString("maker");
             String type = rs.getString("type");
             String mechanic = rs.getString("mechanic");
-            int playerCount = rs.getInt("player_count");
-            int ageLimit = rs.getInt("age_limit");
+            String playerCount = rs.getString("player_count");
+            String ageLimit = rs.getString("age_limit");
             boolean diceUsage = rs.getBoolean("dice_usage");
             boolean cardUsage = rs.getBoolean("card_usage");
-            int averagePlayTime = rs.getInt("average_play_time");
+            String averagePlayTime = rs.getString("average_play_time");
             int price = rs.getInt("price");
             int quantityAvailable = rs.getInt("quantity_available");
             int quantitySold = rs.getInt("quantity_sold");
@@ -50,7 +51,6 @@ public class BoardGameRepo {
 
         rs.close();
         st.close();
-        con.close();
 
         return boardGames;
     }

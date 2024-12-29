@@ -5,11 +5,12 @@ import java.util.List;
 import repo.BoardGameRepo;
 import structures.BoardGame;
 
-
 public class BoardGamePanel extends IMSPanel {
 	private static final long serialVersionUID = 1L;
+	private BoardGameRepo repo;
 
-	public BoardGamePanel() {
+	public BoardGamePanel(BoardGameRepo repo) {
+		this.repo = repo;
 		addContent();
 	}
 	
@@ -40,11 +41,11 @@ public class BoardGamePanel extends IMSPanel {
             bg.maker,
             bg.type,
             bg.mechanic,
-            Integer.toString(bg.playerCount),
-            Integer.toString(bg.ageLimit),
+            bg.playerCount,
+            bg.ageLimit,
             Boolean.toString(bg.diceUsage),
             Boolean.toString(bg.cardUsage),
-            Integer.toString(bg.averagePlayTime),
+            bg.averagePlayTime,
             Integer.toString(bg.price),
             Integer.toString(bg.quantityAvailable),
             Integer.toString(bg.quantitySold)};

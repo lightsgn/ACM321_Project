@@ -2,7 +2,6 @@ package repo;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -12,7 +11,12 @@ import structures.Supplier;
 
 public class SupplierRepo {
 	
+	Connection con;
 	
+	public SupplierRepo(Connection con) {
+		this.con = con;
+	}
+
 	public List<Supplier> listAll() {
 		try {
 			return fetchAll();
@@ -22,10 +26,6 @@ public class SupplierRepo {
 	}
 	
 	private List<Supplier> fetchAll() throws Exception{
-		
-		String url = "jdbc:sqlite:db/project.db"; 
-		
-		Connection con = DriverManager.getConnection(url);
 		Statement st = con.createStatement();
 		String query="select * from suppliers";
 		ResultSet rs = st.executeQuery(query);
@@ -43,7 +43,6 @@ public class SupplierRepo {
 	    } 
 	    rs.close();
 	    st.close();
-	    con.close();
 	    return suppliers;
 	}
 	

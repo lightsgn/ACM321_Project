@@ -6,14 +6,8 @@ import repo.BoardGameRepo;
 import repo.SupplierRepo;
 import repo.PurchaseRepo;
 
-import repo.BoardGameRepo;
-
 public class IMSGui {
-	  
-
-
-
-
+	
 	public IMSGui (SupplierRepo supplierRepo, BoardGameRepo boardGameRepo, PurchaseRepo purchaseRepo) {
         JTabbedPane tabPane = new JTabbedPane();
         tabPane.addTab("Boardgames", new BoardGamePanel(boardGameRepo));
@@ -23,7 +17,7 @@ public class IMSGui {
         
         JFrame frame = new JFrame("JTabbedPane Example");
         frame.add(tabPane);
-        frame.setSize(400, 300);
+        frame.setSize(1000, 600);
         frame.setVisible(true);
 	}
 	

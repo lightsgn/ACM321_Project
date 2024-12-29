@@ -41,7 +41,7 @@ public abstract class IMSPanel extends JPanel {
 	
 	public void createForm(JPanel formPanel) {
         JPanel boxPanel = new JPanel();
-        boxPanel.setLayout(new GridLayout(10 , 1));
+        boxPanel.setLayout(new GridLayout(11 , 1));
         boxPanel.setBackground(new Color(240, 240, 255));
         JPanel flowPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         flowPanel.setBackground(new Color(240, 255, 240));

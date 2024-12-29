@@ -2,6 +2,8 @@ package gui;
 
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import repo.PurchaseRepo;
 import structures.Purchase;
 
@@ -40,5 +42,11 @@ public class PurchasesPanel extends IMSPanel {
 				,Integer.toString(s.vat)
 				
 				};
+	}
+
+	@Override
+	protected void initializeForm(JPanel panel) {
+		// TODO Auto-generated method stub
+		
 	}
 }

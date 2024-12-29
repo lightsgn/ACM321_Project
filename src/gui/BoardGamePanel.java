@@ -2,6 +2,8 @@ package gui;
 
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import repo.BoardGameRepo;
 import structures.BoardGame;
 
@@ -50,4 +52,10 @@ public class BoardGamePanel extends IMSPanel {
             Integer.toString(bg.quantityAvailable),
             Integer.toString(bg.quantitySold)};
 }
+
+	@Override
+	protected void initializeForm(JPanel panel) {
+		// TODO Auto-generated method stub
+		
+	}
 }

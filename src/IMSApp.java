@@ -5,6 +5,7 @@ import gui.IMSGui;
 import repo.SupplierRepo;
 import repo.BoardGameRepo;
 import repo.PurchaseRepo;
+import repo.SaleRepo;
 
 
 public class IMSApp {
@@ -12,9 +13,10 @@ public class IMSApp {
 		Connection con = getConnection();
 		if(con == null) con = createDatabase();
 		SupplierRepo repo = new SupplierRepo(con);
+		SaleRepo saleRepo = new SaleRepo(con);
 		BoardGameRepo boardGameRepo = new BoardGameRepo(con);
 		PurchaseRepo purchaseRepo = new PurchaseRepo(con);
-		new IMSGui(repo, boardGameRepo,purchaseRepo);
+		new IMSGui(repo, boardGameRepo,purchaseRepo,saleRepo);
 		con.close();
 		
 	}

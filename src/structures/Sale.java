@@ -3,10 +3,12 @@ package structures;
 public class Sale {
     private int saleId;
     private String saleDate;
-    private int customerId;
-    private int productId;
-    private int quantity;
-    private double unitPrice;
+    public int customerId;
+    public int productId;
+    public int quantity;
+    public double unitPrice;
+	public Object id;
+	public Object date;
 
     // Constructor
     public Sale(int saleId, String saleDate, int customerId, int productId, int quantity, double unitPrice) {
@@ -65,4 +67,9 @@ public class Sale {
     public void setPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+
+	public Object getUnitPrice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

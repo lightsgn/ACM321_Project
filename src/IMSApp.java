@@ -11,13 +11,11 @@ import repo.SaleRepo;
 public class IMSApp {
 	public static void main(String[] args) throws Exception {
 		Connection con = getConnection();
-		if(con == null) con = createDatabase();
 		SupplierRepo repo = new SupplierRepo(con);
 		SaleRepo saleRepo = new SaleRepo(con);
 		BoardGameRepo boardGameRepo = new BoardGameRepo(con);
 		PurchaseRepo purchaseRepo = new PurchaseRepo(con);
 		new IMSGui(repo, boardGameRepo,purchaseRepo,saleRepo);
-		
 		
 	}
 	
@@ -31,11 +29,6 @@ public class IMSApp {
         }
         return con;
 		
-	}
-	
-	private static Connection createDatabase() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }

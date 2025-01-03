@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import structures.Purchase;
 
 public class PurchaseRepo {
@@ -17,6 +18,8 @@ public class PurchaseRepo {
 		this.con=con;
 		
 	}
+	
+	
 	
 	
 	public List<Purchase> listAll() {
@@ -44,7 +47,7 @@ public class PurchaseRepo {
 	    	String boardgameId =rs.getString("boardgame_id");
 	    	String date =rs.getString("date");
 	    	int quantity =rs.getInt("quantity");
-	    	int unitPrice =rs.getInt("unit_price");
+	    	double unitPrice =rs.getInt("unit_price");
 	    	int vat =rs.getInt("vat");
 
 	    	Purchase purchase = new Purchase(id

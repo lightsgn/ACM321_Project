@@ -18,6 +18,7 @@ public class IMSGui {
         tabPane.addTab("Suppliers", new SuppliersPanel(supplierRepo));
         
         JFrame frame = new JFrame("JTabbedPane Example");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.add(tabPane);
         frame.setSize(1000, 600);
         frame.setVisible(true);

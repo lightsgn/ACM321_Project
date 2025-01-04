@@ -47,7 +47,7 @@ public class SaleRepo {
 	}
 
 	public void addSale(Sale sale) throws SQLException {
-		String sql = "INSERT INTO sales (sale_date, customer_id, product_id, quantity, unit_price) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO sales (date, customer_id, product_id, quantity, unit_price) VALUES (?, ?, ?, ?, ?)";
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setString(1, sale.getSaleDate());
 			stmt.setInt(2, sale.getCustomerId());
@@ -59,7 +59,7 @@ public class SaleRepo {
 	}
 
 	public boolean updateSale(Sale sale) throws SQLException {
-		String sql = "UPDATE sales SET product_id = ?, quantity = ?, unit_price = ?, sale_date = ?, customer_id = ? WHERE sale_id = ?";
+		String sql = "UPDATE sales SET product_id = ?, quantity = ?, unit_price = ?, date = ?, customer_id = ? WHERE sale_id = ?";
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, sale.getProductId());
 			stmt.setInt(2, sale.getQuantity());
@@ -73,7 +73,7 @@ public class SaleRepo {
 	}
 
 	public boolean deleteSale(int saleId) throws SQLException {
-		String sql = "DELETE FROM sales WHERE sale_id = ?";
+		String sql = "DELETE FROM sales WHERE sales_id = ?";
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, saleId);
 			stmt.executeUpdate();

@@ -102,6 +102,10 @@ public class SuppliersPanel extends IMSPanel {
 		JButton updateBtn = new JButton("Update");
 		updateBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(idField.getText() == null || idField.getText().isBlank()) {
+					showMessage("id field can not be empty");
+					return;
+				}
 				Supplier supplier = readForm();
 				String message = repo.update(supplier);
 				JOptionPane.showMessageDialog(SuppliersPanel.this, message);
@@ -114,6 +118,10 @@ public class SuppliersPanel extends IMSPanel {
 		JButton readBtn = new JButton("Read");
 		readBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(idField.getText() == null || idField.getText().isBlank()) {
+					showMessage("id field can not be empty");
+					return;
+				}
 				Supplier supplier = readForm();
 				Supplier supplier2 = repo.read(supplier.id);
 				if (supplier2 == null) {
@@ -132,14 +140,14 @@ public class SuppliersPanel extends IMSPanel {
 		JButton createBtn = new JButton("Create");
 		createBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				if(idField.getText()!= null && !idField.getText().isBlank()) {
-//					resultField.setText("id alanı boş olmalıdır");
-//					return;
-//				}
+				if(idField.getText() == null || idField.getText().isBlank()) {
+					showMessage("id field can not be empty");
+					return;
+				}
 				Supplier supplier = readForm();
 				String message = repo.create(supplier);
-				JOptionPane.showMessageDialog(SuppliersPanel.this, message);
-				resultField.setText(message);
+				showMessage(message);
+				
 			}
 		});
 		createBtn.setBounds(37, 207, 97, 25);
@@ -148,6 +156,10 @@ public class SuppliersPanel extends IMSPanel {
 		JButton deleteBtn = new JButton("Delete");
 		deleteBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(idField.getText() == null || idField.getText().isBlank()) {
+					showMessage("id field can not be empty");
+					return;
+				}
 				Supplier supplier = readForm();
 				String message = repo.delete(supplier.id);
 				JOptionPane.showMessageDialog(SuppliersPanel.this, message);
@@ -179,6 +191,11 @@ public class SuppliersPanel extends IMSPanel {
 		formPanel.add(resultField);
 		resultField.setColumns(10);
 
+	}
+
+	protected void showMessage(String message) {
+		JOptionPane.showMessageDialog(SuppliersPanel.this, message);
+		resultField.setText(message);		
 	}
 
 	protected void clearForm() {

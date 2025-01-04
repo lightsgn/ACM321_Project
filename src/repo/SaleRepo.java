@@ -6,7 +6,6 @@ import java.util.List;
 import structures.Sale;
 
 public class SaleRepo {
-	private static final String DB_URL = null;
 	private Connection con;
 
 	public SaleRepo(Connection con) {
@@ -26,16 +25,16 @@ public class SaleRepo {
 	}
 
 	private List<Sale> fetchAll() throws SQLException {
-		String query = "SELECT sale_id, sale_date, customer_id, product_id, quantity, unit_price FROM sales";
+		String query = "SELECT sales_id, date, customer_id, product_id, quantity, unit_price FROM sales";
 	    List<Sale> sales = new ArrayList<>();
 
-	    try (Connection conn = DriverManager.getConnection(DB_URL);
-	         PreparedStatement stmt = conn.prepareStatement(query);
+	    try (
+	         PreparedStatement stmt = con.prepareStatement(query);
 	         ResultSet rs = stmt.executeQuery()) {
 
 	        while (rs.next()) {
-	            int saleId = rs.getInt("sale_id");
-	            String saleDate = rs.getString("sale_date");
+	            int saleId = rs.getInt("sales_id");
+	            String saleDate = rs.getString("date");
 	            int customerId = rs.getInt("customer_id");
 	            int productId = rs.getInt("product_id");
 	            int quantity = rs.getInt("quantity");

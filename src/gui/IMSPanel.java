@@ -1,12 +1,7 @@
+
 package gui;
 
 import java.awt.GridLayout;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -24,7 +19,7 @@ public abstract class IMSPanel extends JPanel {
         formPanel = new JPanel();
         JScrollPane tablePanel = new JScrollPane(table);
         //add(new JLabel(getTitle()));
-        createForm(formPanel);
+        initializeForm(formPanel);
         add(tablePanel);
         add(formPanel);
 		
@@ -39,29 +34,5 @@ public abstract class IMSPanel extends JPanel {
 	
 	public abstract String[] getColumnNames();
 	
-	public void createForm(JPanel formPanel) {
-        JPanel boxPanel = new JPanel();
-        boxPanel.setLayout(new GridLayout(11 , 1));
-        boxPanel.setBackground(new Color(240, 240, 255));
-        JPanel flowPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        flowPanel.setBackground(new Color(240, 255, 240));
-        flowPanel.add(boxPanel);
-        formPanel.add(flowPanel);
-        initializeForm(boxPanel);
-        
-	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,7 +17,7 @@ public class IMSApp {
 		BoardGameRepo boardGameRepo = new BoardGameRepo(con);
 		PurchaseRepo purchaseRepo = new PurchaseRepo(con);
 		new IMSGui(repo, boardGameRepo,purchaseRepo,saleRepo);
-		con.close();
+		
 		
 	}
 	
